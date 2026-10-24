@@ -1,8 +1,9 @@
-
+import os
 from flask import Flask, request, redirect, url_for, render_template_string
 from threading import RLock
 from datetime import datetime, timedelta
 from urllib.parse import urlencode
+
 
 app = Flask(__name__)
 lock = RLock()
@@ -11,8 +12,8 @@ MAX_FAILURES = 5
 WINDOW_MINUTES = 5
 BLOCK_MINUTES = 2
 
-DEMO_USERNAME = "student"
-DEMO_PASSWORD = "Demo123!"
+DEMO_USERNAME = os.environ.get("THREATPULSE_USERNAME", "student")
+DEMO_PASSWORD = os.environ.get("THREATPULSE_PASSWORD", "")
 
 failed_attempts = {}
 blocked_until = {}
