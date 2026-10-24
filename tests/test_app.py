@@ -1,3 +1,7 @@
+import os
+
+os.environ["THREATPULSE_USERNAME"] = "student"
+os.environ["THREATPULSE_PASSWORD"] = "Demo123!"
 
 import pytest
 import app as threatpulse
